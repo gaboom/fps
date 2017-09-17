@@ -221,6 +221,13 @@ require([
 
 		game.start(gameLoop, gameViewportSize);
 
+		// go full screen on click
+
+		$("canvas").click(function() {
+			screenfull.toggle();
+		})
+
+
 	}).fail(function(err, msg) {
 		console.log(err, msg);
 

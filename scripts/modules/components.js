@@ -4,8 +4,8 @@
 define({
 
 	Hero : function Hero () {
-		this.health = 1000;
-		this.shells = 0;
+		this.health = 5783;
+		this.shells = 10000;
 	},
 
 	Body : function Body (object, height) {
@@ -68,7 +68,7 @@ define({
 	},
 
 	Monster : function Monster () {
-		this.health = 100;
+		this.health = 50;
 	},
 
 	AnimatedObject : function AnimatedObject (object) {

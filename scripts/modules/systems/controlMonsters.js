@@ -31,8 +31,8 @@ define(["ecs", "game", "map", "components"], function (ecs, game, map, component
 				target.copy(playerPosition);
 
 				if(!(underFire || hasPlasma)) {
-					// move once every 4 seconds when not under fire or throwing plasma balls
-					if(Math.random() < dt / 4000) {
+					// move once every 6 seconds when not under fire or throwing plasma balls
+					if(Math.random() < dt / 6000) {
 						destination.index = map.requestRandomDestinationIndex(destination.index);
 
 						// if it still has its plate attached, remove it
@@ -42,8 +42,8 @@ define(["ecs", "game", "map", "components"], function (ecs, game, map, component
 							monster.remove(components.PlateEntity);
 						}
 					} else {
-						// otherwise maybe throw another plasma ball
-						if(Math.random() < dt / 3000) {
+						// otherwise maybe throw another plasma ball more often
+						if(Math.random() < dt / 500) {
 							var plasmaBall = game.assets.plasmaBall.clone(); game.scene.add(plasmaBall);
 							var plasmaComponent = new components.Plasma(plasmaBall);
 							monster.add(plasmaComponent);

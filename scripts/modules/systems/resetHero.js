@@ -4,7 +4,8 @@ define(["ecs", "game", "components", "systems/handleShotgun"], function (ecs, ga
 		ecs.for_each([components.Hero, components.Motion], function(player) {
 			var health = player.get(components.Hero).health;
 			var motion = player.get(components.Motion);
-			if((motion.position.y < -123) || (health <= 0)) {
+
+			if((motion.position.y < -60) || (health <= 0)) {
 				if (health <= 0) {
 					game.assets.death[(Math.random() < 0.7) ? 0 : 1].cloneNode().play();
 				}
@@ -16,6 +17,14 @@ define(["ecs", "game", "components", "systems/handleShotgun"], function (ecs, ga
 
 				player.remove(components.Shotgun); handleShotgun.reset();
 			}
+
+			// must have shotgun
+			var shotgun = player.get(components.Shotgun);
+			if(!shotgun) {
+						player.add(shotgun = new components.Shotgun());
+						handleShotgun.reload();
+			}
+
 			return true;
 		});
 	}};

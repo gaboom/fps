@@ -5,12 +5,12 @@ define(["ecs", "game", "components"], function (ecs, game, components) {
 			monstersCount++;
 		});
 
-		// if there are less than 3 monsters...
-		if(monstersCount < 3) {
-			// ...spawn one every 7 seconds, or N = 7000/dt calls
+		// if there are less than 12 monsters...
+		if(monstersCount < 12) {
+			// ...spawn one every 5 seconds, or N = 7000/dt calls
 			// with probability P per call, P * N ~ 1, or P ~ 1 / N
 
-			if(Math.random() < dt / 7000) {
+			if(Math.random() < dt / 5000) {
 
 				var object = game.assets.monsterModel.clone();
 

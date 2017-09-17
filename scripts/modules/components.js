@@ -4,7 +4,7 @@
 define({
 
 	Hero : function Hero () {
-		this.health = 100;
+		this.health = 1000;
 		this.shells = 0;
 	},
 

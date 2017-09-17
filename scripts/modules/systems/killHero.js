@@ -21,8 +21,8 @@ define(["ecs", "game", "components"], function (ecs, game, components) {
 			// collect damage
 			damage += Math.max(1 - 0.3 * distance.lengthSq(), 0);
 
-			// push the player a little
-			push.add(distance.normalize().multiplyScalar(damage * 0.01));
+			// NOT push the player a little
+			// push.add(distance.normalize().multiplyScalar(damage * 0.01));
 		});
 
 		push.y = 0; playerMotion.velocity.add(push);
